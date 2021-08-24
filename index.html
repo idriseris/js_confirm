@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS Plug</title>
+	<link rel="stylesheet" type="text/css" href="css/default.css">
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery-plugin.js"></script>
+</head>
+<body>
+
+<div class="alan">
+	<button id="test1">TEST 1</button>
+	<button id="test2">TEST 2</button>
+	<button id="test3">TEST 3</button>
+</div>
+<script type="text/javascript">
+// Kullanım
+$(function(){
+	$("#test1").click(function(){
+		$.Confirm({
+			title: "Başlık",
+			content: "Mesaj içeriği",
+			yes: "EVET",
+			no: "HAYIR",
+			close: true,
+			onYesClick: function(){
+				console.log("Next");
+			},
+			onNoClick: function(){
+				$("#mask").fadeOut("slow");
+				console.log("Stop");
+			}
+		});
+	});
+	$("#test2").click(function(){
+		$.Confirm({
+			title: "Başlık 2",
+			content: "Mesaj içeriği 2",
+			yes: "TAMAM",
+			onYesClick: function(){
+				console.log("Next");
+				$("#mask").fadeOut("slow");
+			}
+		});
+	});
+	$("#test3").click(function(){
+		$.Confirm({
+			title: "What is Lorem Ipsum?",
+			content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+			close: true
+		});
+	});
+});
+</script>
+</body>
+</html>
